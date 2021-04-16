@@ -38,7 +38,7 @@ public class App {
         biblio = new Bibliotheque();
         jFrameBiblio = new JFrameBibliotheque();
         ctable.setJframeBiblio(jFrameBiblio);
-        jFrameBiblio.setTableExemplaires(ctable);
+        //jFrameBiblio.setTableExemplaires(ctable);
         tableOuvrages = new CTableOuvrages(new CBDD(new CParametresStockageBDD("parametresBdd.properties")));
         this.majBiblio();
         //this.afficherListejTableBiblio();
@@ -68,13 +68,14 @@ public class App {
             this.jFrameBiblio.idLivres[i] = this.biblio.getListeLivres().get(i).getId();
             this.jFrameBiblio.getjTableBibliotheque().setValueAt(this.biblio.getListeLivres().get(i).getTitre(), i, 0);
             this.jFrameBiblio.getjTableBibliotheque().setValueAt(this.biblio.getListeLivres().get(i).getAuteur(), i, 1);
-            this.jFrameBiblio.getjTableBibliotheque().setValueAt(this.biblio.getListeLivres().get(i).getRef(), i, 2);
-            this.jFrameBiblio.getjTableBibliotheque().setValueAt(this.biblio.getListeLivres().get(i).getNbrePages(), i, 3);
-            this.jFrameBiblio.getjTableBibliotheque().setValueAt(this.biblio.getListeLivres().get(i).getEdition(), i, 4);
-            this.jFrameBiblio.getjTableBibliotheque().setValueAt(this.biblio.getListeLivres().get(i).getGenre(), i, 5);
-            this.jFrameBiblio.getjTableBibliotheque().setValueAt(this.biblio.getListeLivres().get(i).getAnneeEdition(), i, 6);
-            this.jFrameBiblio.getjTableBibliotheque().setValueAt(this.biblio.getListeLivres().get(i).getLangue(), i, 7);
-            this.jFrameBiblio.getjTableBibliotheque().setValueAt(this.biblio.getListeLivres().get(i).getFormat(), i, 8);
+           // this.jFrameBiblio.getjTableBibliotheque().setValueAt(this.biblio.getListeLivres().get(i).getRef(), i, 2);
+           // this.jFrameBiblio.getjTableBibliotheque().setValueAt(this.biblio.getListeLivres().get(i).getNbrePages(), i, 3);
+            this.jFrameBiblio.getjTableBibliotheque().setValueAt(this.biblio.getListeLivres().get(i).getEdition(), i, 2);
+            this.jFrameBiblio.getjTableBibliotheque().setValueAt(this.biblio.getListeLivres().get(i).getGenre(), i, 3);
+           // this.jFrameBiblio.getjTableBibliotheque().setValueAt(this.biblio.getListeLivres().get(i).getAnneeEdition(), i, 6);
+           // this.jFrameBiblio.getjTableBibliotheque().setValueAt(this.biblio.getListeLivres().get(i).getLangue(), i, 7);
+            this.jFrameBiblio.getjTableBibliotheque().setValueAt(this.biblio.getListeLivres().get(i).getFormat(), i, 4);
+            this.jFrameBiblio.getjTableBibliotheque().setValueAt(this.biblio.getListeLivres().get(i).getIsbn(), i, 5);
         }
     }
 
@@ -85,13 +86,14 @@ public class App {
             this.jFrameBiblio.idLivres[i] = list.get(i).getId();
             this.jFrameBiblio.getjTableBibliotheque().setValueAt(list.get(i).getTitre(), i, 0);
             this.jFrameBiblio.getjTableBibliotheque().setValueAt(list.get(i).getAuteur(), i, 1);
-            this.jFrameBiblio.getjTableBibliotheque().setValueAt(list.get(i).getRef(), i, 2);
-            this.jFrameBiblio.getjTableBibliotheque().setValueAt(list.get(i).getNbrePages(), i, 3);
-            this.jFrameBiblio.getjTableBibliotheque().setValueAt(list.get(i).getEdition(), i, 4);
-            this.jFrameBiblio.getjTableBibliotheque().setValueAt(list.get(i).getGenre(), i, 5);
-            this.jFrameBiblio.getjTableBibliotheque().setValueAt(list.get(i).getAnneeEdition(), i, 6);
-            this.jFrameBiblio.getjTableBibliotheque().setValueAt(list.get(i).getLangue(), i, 7);
-            this.jFrameBiblio.getjTableBibliotheque().setValueAt(list.get(i).getFormat(), i, 8);
+//            this.jFrameBiblio.getjTableBibliotheque().setValueAt(list.get(i).getRef(), i, 2);
+//            this.jFrameBiblio.getjTableBibliotheque().setValueAt(list.get(i).getNbrePages(), i, 3);
+            this.jFrameBiblio.getjTableBibliotheque().setValueAt(list.get(i).getEdition(), i, 2);
+            this.jFrameBiblio.getjTableBibliotheque().setValueAt(list.get(i).getGenre(), i, 3);
+//            this.jFrameBiblio.getjTableBibliotheque().setValueAt(list.get(i).getAnneeEdition(), i, 6);
+//            this.jFrameBiblio.getjTableBibliotheque().setValueAt(list.get(i).getLangue(), i, 7);
+            this.jFrameBiblio.getjTableBibliotheque().setValueAt(list.get(i).getFormat(), i, 4);
+            this.jFrameBiblio.getjTableBibliotheque().setValueAt(list.get(i).getIsbn(), i, 5);
         }
     }
 

@@ -38,7 +38,7 @@ public class CTableOuvrages {
             String langue = rs.getString(10);
             String format = rs.getString(11);
 
-            Ouvrage livre = new Ouvrage(id, isbn, titre, auteur, ref, nbrePages, edition, genre, anneeEdition, langue, format);
+            Ouvrage livre = new Ouvrage(id, isbn, titre, auteur, ref, nbrePages, edition, genre/*, anneeEdition*/, langue, format);
 
             return livre;
         } catch (SQLException ex) {
@@ -96,18 +96,14 @@ public class CTableOuvrages {
     public int insererOuvrage(Ouvrage unOuvrage) {
         int res = -1;
         if (bdd.connecter() == true) {
-            String req = "INSERT INTO `ouvrages` (`isbnOuvrage`,`titreOuvrage`, `idAuteur`, `refOuvrage`,"
-                    + " `nbpageOuvrage`, `idEdition`, `idGenre`, `anneeeditionOuvrage`, `langueOuvrage`, `idFormat`) "
-                    + "VALUES ('" + CBDD.pretraiterChaineSQL(unOuvrage.getIsbn())
-                    + "', '" + CBDD.pretraiterChaineSQL(unOuvrage.getTitre())
-                    + "', '" + CBDD.pretraiterChaineSQL(unOuvrage.getAuteur())
-                    + "', '" + CBDD.pretraiterChaineSQL(unOuvrage.getRef())
-                    + "', '" + CBDD.pretraiterChaineSQL(unOuvrage.getNbrePages())
+            String req = "INSERT INTO `ouvrages` (`auteur`,`edition`, `genre`,"
+                    + "`titre`, `format`, `isbn`) "
+                    + "VALUES ('" + CBDD.pretraiterChaineSQL(unOuvrage.getAuteur())
                     + "', '" + CBDD.pretraiterChaineSQL(unOuvrage.getEdition())
                     + "', '" + CBDD.pretraiterChaineSQL(unOuvrage.getGenre())
-                    + "', '" + CBDD.pretraiterChaineSQL(unOuvrage.getAnneeEdition())
-                    + "', '" + CBDD.pretraiterChaineSQL(unOuvrage.getLangue())
+                    + "', '" + CBDD.pretraiterChaineSQL(unOuvrage.getTitre())
                     + "', '" + CBDD.pretraiterChaineSQL(unOuvrage.getFormat())
+                    + "', '" + CBDD.pretraiterChaineSQL(unOuvrage.getIsbn())
                     + "');";
             res = bdd.executerRequeteUpdate(req);
             bdd.deconnecter();
@@ -164,9 +160,9 @@ public class CTableOuvrages {
                     + "`genre` = '"
                     + CBDD.pretraiterChaineSQL(unOuvrage.getGenre())
                     + "', "
-                    + "`anneeEdition` = '"
-                    + CBDD.pretraiterChaineSQL(unOuvrage.getAnneeEdition())
-                    + "', "
+//                    + "`anneeEdition` = '"
+//                    + CBDD.pretraiterChaineSQL(unOuvrage.getAnneeEdition())
+//                    + "', "
                     + "`langue` = '"
                     + CBDD.pretraiterChaineSQL(unOuvrage.getLangue())
                     + "', "

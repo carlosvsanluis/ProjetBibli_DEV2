@@ -25,11 +25,11 @@ public class Ouvrage {
     private String nbrePages;
     private String edition;
     private String genre;
-    private String anneeEdition;
+//    private String anneeEdition;
     private String langue;
     private String format;
 
-    public Ouvrage(String id, String isbn, String titre, String auteur, String ref, String nbrePages, String edition, String genre, String anneeEdition, String langue, String format) {
+    public Ouvrage(String id, String isbn, String titre, String auteur, String ref, String nbrePages, String edition, String genre/*, String anneeEdition*/, String langue, String format) {
         this.id = id;
         this.isbn = isbn;
         this.titre = titre;
@@ -38,12 +38,12 @@ public class Ouvrage {
         this.nbrePages = nbrePages;
         this.edition = edition;
         this.genre = genre;
-        this.anneeEdition = anneeEdition;
+//        this.anneeEdition = anneeEdition;
         this.langue = langue;
         this.format = format;
     }
 
-    public Ouvrage(String isbn, String titre, String auteur, String ref, String nbrePages, String edition, String genre, String anneeEdition, String langue, String format) {
+    public Ouvrage(String isbn, String titre, String auteur, String ref, String nbrePages, String edition, String genre/*, String anneeEdition*/, String langue, String format) {
         this.isbn = isbn;
         this.titre = titre;
         this.auteur = auteur;
@@ -51,7 +51,7 @@ public class Ouvrage {
         this.nbrePages = nbrePages;
         this.edition = edition;
         this.genre = genre;
-        this.anneeEdition = anneeEdition;
+//        this.anneeEdition = anneeEdition;
         this.langue = langue;
         this.format = format;
     }
@@ -117,13 +117,13 @@ public class Ouvrage {
         this.langue = langue;
     }
 
-    public String getAnneeEdition() {
-        return anneeEdition;
-    }
-
-    public void setAnneeEdition(String anneeEdition) {
-        this.anneeEdition = anneeEdition;
-    }
+//    public String getAnneeEdition() {
+//        return anneeEdition;
+//    }
+//
+//    public void setAnneeEdition(String anneeEdition) {
+//        this.anneeEdition = anneeEdition;
+//    }
 
     public String getEdition() {
         return edition;

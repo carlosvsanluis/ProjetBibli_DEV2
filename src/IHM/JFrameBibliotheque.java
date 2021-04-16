@@ -47,25 +47,26 @@ public class JFrameBibliotheque extends javax.swing.JFrame {
         jLabelBibliotheque = new javax.swing.JLabel();
         addBook = new javax.swing.JButton();
         removeBook = new javax.swing.JButton();
+        jComboBox1 = new javax.swing.JComboBox<>();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         jTableBibliotheque.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null, null}
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null}
             },
             new String [] {
-                "Titre", "Auteur", "Ref", "Pages", "Edition", "Genre", "Année Ed.", "Langue", "Format"
+                "Titre", "Auteur", "Edition", "Genre", "Format", "Isbn"
             }
         ) {
             Class[] types = new Class [] {
-                java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class
+                java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.Object.class
             };
             boolean[] canEdit = new boolean [] {
-                false, false, false, false, false, false, false, false, false
+                false, false, false, false, false, false
             };
 
             public Class getColumnClass(int columnIndex) {
@@ -76,6 +77,7 @@ public class JFrameBibliotheque extends javax.swing.JFrame {
                 return canEdit [columnIndex];
             }
         });
+        jTableBibliotheque.setColumnSelectionAllowed(true);
         jScrollPane1.setViewportView(jTableBibliotheque);
         jTableBibliotheque.getColumnModel().getSelectionModel().setSelectionMode(javax.swing.ListSelectionModel.SINGLE_INTERVAL_SELECTION);
 
@@ -95,6 +97,8 @@ public class JFrameBibliotheque extends javax.swing.JFrame {
             }
         });
 
+        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -107,7 +111,9 @@ public class JFrameBibliotheque extends javax.swing.JFrame {
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(addBook)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(removeBook)))
+                        .addComponent(removeBook)
+                        .addGap(97, 97, 97)
+                        .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap(30, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
@@ -120,7 +126,8 @@ public class JFrameBibliotheque extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(addBook)
-                    .addComponent(removeBook))
+                    .addComponent(removeBook)
+                    .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(176, Short.MAX_VALUE))
         );
 
@@ -179,6 +186,7 @@ public class JFrameBibliotheque extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton addBook;
+    private javax.swing.JComboBox<String> jComboBox1;
     private javax.swing.JLabel jLabelBibliotheque;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTable jTableBibliotheque;
