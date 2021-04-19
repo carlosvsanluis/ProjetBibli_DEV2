@@ -29,31 +29,28 @@ public class Ouvrage {
     private String langue;
     private String format;
 
-    public Ouvrage(String id, String isbn, String titre, String auteur, String ref, String nbrePages, String edition, String genre/*, String anneeEdition*/, String langue, String format) {
+//    public Ouvrage(String id, String isbn, String titre, String auteur, String ref, String nbrePages, String edition, String genre/*, String anneeEdition*/, String langue, String format) {
+//        this.id = id;
+//        this.isbn = isbn;
+//        this.titre = titre;
+//        this.auteur = auteur;
+//        this.ref = ref;
+//        this.nbrePages = nbrePages;
+//        this.edition = edition;
+//        this.genre = genre;
+////        this.anneeEdition = anneeEdition;
+//        this.langue = langue;
+//        this.format = format;
+//    }
+    public Ouvrage(String id, String titre, String auteur, String edition, String genre, String format, String isbn) {
         this.id = id;
-        this.isbn = isbn;
         this.titre = titre;
         this.auteur = auteur;
-        this.ref = ref;
-        this.nbrePages = nbrePages;
         this.edition = edition;
         this.genre = genre;
-//        this.anneeEdition = anneeEdition;
-        this.langue = langue;
         this.format = format;
-    }
+        this.isbn = isbn;   
 
-    public Ouvrage(String isbn, String titre, String auteur, String ref, String nbrePages, String edition, String genre/*, String anneeEdition*/, String langue, String format) {
-        this.isbn = isbn;
-        this.titre = titre;
-        this.auteur = auteur;
-        this.ref = ref;
-        this.nbrePages = nbrePages;
-        this.edition = edition;
-        this.genre = genre;
-//        this.anneeEdition = anneeEdition;
-        this.langue = langue;
-        this.format = format;
     }
 
     /*
@@ -124,7 +121,6 @@ public class Ouvrage {
 //    public void setAnneeEdition(String anneeEdition) {
 //        this.anneeEdition = anneeEdition;
 //    }
-
     public String getEdition() {
         return edition;
     }

@@ -27,18 +27,18 @@ public class CTableOuvrages {
     public Ouvrage convertir_RS_Ouvrage(ResultSet rs) {
         try {
             String id = rs.getString(1);
-            String isbn = rs.getString(2);
-            String titre = rs.getString(3);
-            String auteur = rs.getString(4);
-            String ref = rs.getString(5);
-            String nbrePages = rs.getString(6);
-            String edition = rs.getString(7);
-            String genre = rs.getString(8);
-            String anneeEdition = rs.getString(9);
+            String titre = rs.getString(2);
+            String auteur = rs.getString(3);
+            String edition = rs.getString(4);
+            String genre = rs.getString(5);
+            String format = rs.getString(6);
+            String isbn = rs.getString(7);
+            String ref = rs.getString(8);
+            String nbPages = rs.getString(9);
             String langue = rs.getString(10);
-            String format = rs.getString(11);
+            String anneeEdition = rs.getString(11);
 
-            Ouvrage livre = new Ouvrage(id, isbn, titre, auteur, ref, nbrePages, edition, genre/*, anneeEdition*/, langue, format);
+            Ouvrage livre = new Ouvrage(id, titre, auteur, edition, genre, format, isbn);
 
             return livre;
         } catch (SQLException ex) {
@@ -197,8 +197,8 @@ public class CTableOuvrages {
 
         // Constructeur public Ouvrage(isbn,titre,ref,nbrePages,langue, String anneeEdition,edition,format,auteur,genre)
 //        Ouvrage livreTest = new Ouvrage(isbn, titre, auteur, ref, nbrePages, edition, genre, anneeEdition, langue, format);
-        Ouvrage livreDeux = new Ouvrage("0000000498", "Tanking the right way", "1", "2", "80", "1", "1", "2021", "English", "2");
-        table.insererOuvrage(livreDeux); // Ca marche avec le jeu de valeur actuel
+//        Ouvrage livreDeux = new Ouvrage("0000000498", "Tanking the right way", "1", "2", "80", "1", "1", "2021", "English", "2");
+//        table.insererOuvrage(livreDeux); // Ca marche avec le jeu de valeur actuel
 //        table.supprimerOuvrage(livreTest);
 //        table.lireOuvrages();
 //        livre.afficher();
