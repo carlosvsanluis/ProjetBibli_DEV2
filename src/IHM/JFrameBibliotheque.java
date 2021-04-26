@@ -5,6 +5,7 @@
  */
 package IHM;
 
+import appli.App;
 import entities.Exemplaire;
 import java.awt.AWTException;
 import static java.awt.Event.ENTER;
@@ -25,10 +26,15 @@ import services.CTableExemplaires;
 public class JFrameBibliotheque extends javax.swing.JFrame {
 
     public String[] idLivres;
+    public App monApp;
 
     /**
      * Creates new form JFrameBibliothèque
      */
+    public JFrameBibliotheque(App uneApp ) { // On créer un constructeur qui oblige de créer le lien avec l'application pour que Jframe puisse l'utiliser.
+        this.monApp = uneApp;
+        initComponents();
+    }
     public JFrameBibliotheque() {
         initComponents();
     }
@@ -143,8 +149,9 @@ public class JFrameBibliotheque extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void addBookActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addBookActionPerformed
-        //TODO atm nullpointer exception
-        jDialog1.setVisible(true);
+        //TODO add your handling code here:
+        // On veut  setVisible(true) la fenêtre jDialog
+        this.monApp.jDialog.setVisible(true);
     }//GEN-LAST:event_addBookActionPerformed
 
     private void removeBookActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_removeBookActionPerformed
@@ -197,20 +204,9 @@ public class JFrameBibliotheque extends javax.swing.JFrame {
     private javax.swing.JTable jTableBibliotheque;
     private javax.swing.JButton removeBook;
     // End of variables declaration//GEN-END:variables
-    
-// ARNAUD ADDED
-    private CTableExemplaires  tableExemplaires;
-// ARNAUD ADDED FINISHED
+
     public JTable getjTableBibliotheque() {
         return jTableBibliotheque;
     }
 
-    // ARNAUD ADDED
-//    public void setTableExemplaires(CTableExemplaires tableExemplaires) {
-//        this.tableExemplaires = tableExemplaires;
-//    }
-
-    public void setTableExemplaires(CTableExemplaires tableExemplaires) {
-        this.tableExemplaires = tableExemplaires;
-    }
 }

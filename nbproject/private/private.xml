@@ -3,11 +3,12 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/Users/SIO_8/Documents/NetBeansProjects/ProjetBibli_DEV2/src/services/CParametresStockageBDD.java</file>
+            <file>file:/C:/Users/SIO_8/Documents/NetBeansProjects/ProjetBibli_DEV2/src/IHM/AjoutLivre.java</file>
+            <file>file:/C:/Users/SIO_8/Documents/NetBeansProjects/ProjetBibli_DEV2/src/services/CTableLivres.java</file>
             <file>file:/C:/Users/SIO_8/Documents/NetBeansProjects/ProjetBibli_DEV2/src/entities/Ouvrage.java</file>
             <file>file:/C:/Users/SIO_8/Documents/NetBeansProjects/ProjetBibli_DEV2/src/services/CTableExemplaires.java</file>
-            <file>file:/C:/Users/SIO_8/Documents/NetBeansProjects/ProjetBibli_DEV2/src/IHM/JFrameBibliotheque.java</file>
             <file>file:/C:/Users/SIO_8/Documents/NetBeansProjects/ProjetBibli_DEV2/src/entities/Bibliotheque.java</file>
+            <file>file:/C:/Users/SIO_8/Documents/NetBeansProjects/ProjetBibli_DEV2/src/IHM/JFrameBibliotheque.java</file>
             <file>file:/C:/Users/SIO_8/Documents/NetBeansProjects/ProjetBibli_DEV2/src/services/CTableOuvrages.java</file>
             <file>file:/C:/Users/SIO_8/Documents/NetBeansProjects/ProjetBibli_DEV2/src/appli/App.java</file>
         </group>

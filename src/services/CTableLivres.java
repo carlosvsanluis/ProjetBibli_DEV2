@@ -13,7 +13,7 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 
 /**
- *
+ * Classe fourni par GIMLI - A n'utiliser qu'en référence de base pour les méthodes ne PAS les appeller dans notre code.
  * @author gimli
  */
 public class CTableLivres {

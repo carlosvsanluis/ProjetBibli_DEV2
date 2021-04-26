@@ -33,23 +33,23 @@ public class Bibliotheque {
         this.listeLivres.add(unOuvrage);
     }
 
-    /**
-     *
-     * @param titre
-     * @param auteur
-     * @param ref
-     * @param nbrePages
-     * @param edition
-     * @param genre
-     * @param anneeEdition
-     * @param langue
-     * @param format
-     * @return
-     */
-    public Livre creationLivre(String titre, String auteur, String ref, String nbrePages, String edition, String genre, String anneeEdition, String langue, String format) {
-        Livre livre = new Livre(titre, auteur, ref, nbrePages, edition, genre, anneeEdition, langue, format);
-        return livre;
-    }
+//    /**
+//     *
+//     * @param titre
+//     * @param auteur
+//     * @param ref
+//     * @param nbrePages
+//     * @param edition
+//     * @param genre
+//     * @param anneeEdition
+//     * @param langue
+//     * @param format
+//     * @return
+//     */
+//    public Livre creationLivre(String titre, String auteur, String ref, String nbrePages, String edition, String genre, String anneeEdition, String langue, String format) {
+//        Livre livre = new Livre(titre, auteur, ref, nbrePages, edition, genre, anneeEdition, langue, format);
+//        return livre;
+//    }
 
     public void setListeLivres(ArrayList<Ouvrage> listeLivres) {
         this.listeLivres = listeLivres;

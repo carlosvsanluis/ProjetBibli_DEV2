@@ -96,12 +96,12 @@ public class CTableOuvrages {
     public int insererOuvrage(Ouvrage unOuvrage) {
         int res = -1;
         if (bdd.connecter() == true) {
-            String req = "INSERT INTO `ouvrages` (`auteur`,`edition`, `genre`,"
-                    + "`titre`, `format`, `isbn`) "
-                    + "VALUES ('" + CBDD.pretraiterChaineSQL(unOuvrage.getAuteur())
+            String req = "INSERT INTO `ouvrages` (`titreOuvrage`,`auteur`, `edition`,"
+                    + "`genre`, `format`, `isbnOuvrage`) "
+                    + "VALUES ('" + CBDD.pretraiterChaineSQL(unOuvrage.getTitre())
+                    + "', '" + CBDD.pretraiterChaineSQL(unOuvrage.getAuteur())
                     + "', '" + CBDD.pretraiterChaineSQL(unOuvrage.getEdition())
                     + "', '" + CBDD.pretraiterChaineSQL(unOuvrage.getGenre())
-                    + "', '" + CBDD.pretraiterChaineSQL(unOuvrage.getTitre())
                     + "', '" + CBDD.pretraiterChaineSQL(unOuvrage.getFormat())
                     + "', '" + CBDD.pretraiterChaineSQL(unOuvrage.getIsbn())
                     + "');";

@@ -49,7 +49,19 @@ public class Ouvrage {
         this.edition = edition;
         this.genre = genre;
         this.format = format;
-        this.isbn = isbn;   
+        this.isbn = isbn;
+
+    }
+
+    // Constructeur SANS ID pour l'insertion en DB.
+    public Ouvrage(String titre, String auteur, String edition, String genre, String format, String isbn) {
+//        this.id = id; // Constructeur SANS ID pour l'insertion en DB.
+        this.titre = titre;
+        this.auteur = auteur;
+        this.edition = edition;
+        this.genre = genre;
+        this.format = format;
+        this.isbn = isbn;
 
     }
 

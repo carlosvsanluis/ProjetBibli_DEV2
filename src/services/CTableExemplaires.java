@@ -5,6 +5,7 @@
  */
 package services;
 
+import IHM.AjoutLivre;
 import IHM.JFrameBibliotheque;
 import entities.Exemplaire;
 
@@ -16,6 +17,7 @@ public class CTableExemplaires {
     
     protected CBDD bdd;
     private JFrameBibliotheque jframeBiblio;
+    private AjoutLivre jDialog;
 
     public CTableExemplaires(CBDD bdd) {
         this.bdd = bdd;
@@ -70,5 +72,13 @@ public class CTableExemplaires {
 
     public void setJframeBiblio(JFrameBibliotheque jframeBiblio) {
         this.jframeBiblio = jframeBiblio;
+    }
+
+    public AjoutLivre getjDialog() {
+        return jDialog;
+    }
+
+    public void setjDialog(AjoutLivre jDialog) {
+        this.jDialog = jDialog;
     }
 }

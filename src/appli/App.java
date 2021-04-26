@@ -5,6 +5,7 @@
  */
 package appli;
 
+import IHM.AjoutLivre;
 import entities.Bibliotheque;
 import services.CBDD;
 import services.CParametresStockageBDD;
@@ -26,18 +27,24 @@ public class App {
 
     public Bibliotheque biblio;
     public JFrameBibliotheque jFrameBiblio;
-    public CTableLivres tableLivres; //TODO à commenter quand tout sera créer correctement ancienne table
+    public AjoutLivre jDialog;
+//    public CTableLivres tableLivres; //TODO à commenter quand tout sera créer correctement ancienne table
     public CTableOuvrages tableOuvrages;
+
+    public CTableOuvrages getTableOuvrages() {
+        return tableOuvrages;
+    }
 
     public void runBibliothequeIHM() {
 
-        CTableExemplaires ctable= new CTableExemplaires(new CBDD(new CParametresStockageBDD("parametresBdd.properties")));
-        
+            
         
         biblio = new Bibliotheque();
-        jFrameBiblio = new JFrameBibliotheque();
-        ctable.setJframeBiblio(jFrameBiblio);
-        //jFrameBiblio.setTableExemplaires(ctable);
+        jFrameBiblio = new JFrameBibliotheque(this); //On a créer un constructeur pour créer le lien de JframeBibliotheque vers App.
+//        this.jFrameBiblio.monApp = this; // Si on ne créer pas de constructeur qui demande une app dans JframeBibliotheque on peut faire ça
+
+        jDialog = new AjoutLivre(jFrameBiblio, true); //TODO WORKING ON IT ATM  
+//        ctable.setJframeBiblio(jFrameBiblio); // TODO DELETE ?
         tableOuvrages = new CTableOuvrages(new CBDD(new CParametresStockageBDD("parametresBdd.properties")));
         this.majBiblio();
         //this.afficherListejTableBiblio();
@@ -45,7 +52,8 @@ public class App {
         //this.setRowCountjTableBiblio(0);
         this.jFrameBiblio.getjTableBibliotheque().setRowSelectionInterval(0, 0);
         jFrameBiblio.setVisible(true);
-
+//        jDialog.setVisible(true); //TODO A commenter quand on veut repassers sur le tableau en attendant d'avoir lié tout ça proprement
+      
     }
 
     public void majBiblio() {
