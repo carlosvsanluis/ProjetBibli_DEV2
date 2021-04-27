@@ -36,9 +36,10 @@ public class CTableAdministres {
             String prenomAdministre = rs.getString(3);
             String telephoneAdministre = rs.getString(4);
             String emailAdministre = rs.getString(5);
-            String adresseAdministre = rs.getString(5);
+            String adresseAdministre = rs.getString(6);
+            String password = rs.getString(7);
 
-            Administre unAdministre = new Administre(id, nomAdministre, prenomAdministre, telephoneAdministre, emailAdministre, adresseAdministre);
+            Administre unAdministre = new Administre(id, nomAdministre, prenomAdministre, telephoneAdministre, emailAdministre, adresseAdministre, password);
 
             return unAdministre;
         } catch (SQLException ex) {
@@ -47,11 +48,12 @@ public class CTableAdministres {
         }
     }
 
-    public Administre lireAdministre(int id) {
+    public Administre lireAdministre(String email, String password) {
         Administre unAdministre = null;
         if (bdd.connecter() == true) {
             System.out.println("Connexion OK");
-            ResultSet rs = bdd.executerRequeteQuery("select * from administres  WHERE `administres`.`idAdministre` = " + id);
+            ResultSet rs = bdd.executerRequeteQuery("select * from administres  WHERE `emailAdministre` = '" + email 
+                    + "' AND `password` = '"+ password + "';");
             try {
                 if (rs.next()) {
                     unAdministre = convertir_RS_Administre(rs);
@@ -63,6 +65,7 @@ public class CTableAdministres {
         } else {
             System.out.println("Connexion KO");
         }
+        System.out.println("");
         return unAdministre;
     }
 
@@ -185,11 +188,12 @@ public class CTableAdministres {
     //Méthode main de test unitaire de mes méthodes
     public static void main(String[] args) {
         CBDD bdd = new CBDD(new CParametresStockageBDD("parametresBdd.properties")); // ne pas oublier de créer une connexion
-        CTableAdministres table = new CTableAdministres(bdd);
+        CTableAdministres controlleur = new CTableAdministres(bdd);
         // public Administre(String id, String nom, String prenom, String telephone, String email, String adresse)
-        Administre Victor = new Administre("2", "Dupont", "Philippe", "0299784512", "dupont.philippe@wanadoo.fr", "1 avenue Mervaud 35400 Saint-malo"); // objet administre de test
+//        Administre Victor = new Administre("2", "Dupont", "Philippe", "0299784512", "dupont.philippe@wanadoo.fr", "1 avenue Mervaud 35400 Saint-malo"); // objet administre de test
 //        table.insererAdministre(Victor);
 //        table.supprimerAdministre("2");
-//        table.lireAdministre(2);
+        controlleur.lireAdministre("lemorvanjulien35@gmail.com", "Bonjour"); // DONE ça fonctionne bien en vérifiant en debug on avait bien l'administre entier.
+        System.out.println("");
     }
 }

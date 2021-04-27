@@ -5,6 +5,7 @@
  */
 package services;
 
+import entities.Administre;
 import entities.Ouvrage;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -71,6 +72,27 @@ public class CTableOuvrages {
         if (bdd.connecter() == true) {
             ArrayList<Ouvrage> listeOuvrages = new ArrayList();
             ResultSet rs = bdd.executerRequeteQuery("select * from ouvrages");
+            try {
+                while (rs.next()) {
+                    Ouvrage unOuvrage = convertir_RS_Ouvrage(rs);
+                    listeOuvrages.add(unOuvrage);
+                }
+            } catch (SQLException ex) {
+                Logger.getLogger(CBDD.class.getName()).log(Level.SEVERE, null, ex);
+            }
+            bdd.deconnecter();
+            return listeOuvrages;
+        } else {
+            System.out.println("Connexion KO");
+        }
+        return null;
+    }
+
+    public ArrayList<Ouvrage> lireOuvrages(Administre unAdministre) {
+
+        if (bdd.connecter() == true) {
+            ArrayList<Ouvrage> listeOuvrages = new ArrayList();
+            ResultSet rs = bdd.executerRequeteQuery("select * from ouvrages where idAdministre = " + unAdministre.getId());
             try {
                 while (rs.next()) {
                     Ouvrage unOuvrage = convertir_RS_Ouvrage(rs);
@@ -160,9 +182,9 @@ public class CTableOuvrages {
                     + "`genre` = '"
                     + CBDD.pretraiterChaineSQL(unOuvrage.getGenre())
                     + "', "
-//                    + "`anneeEdition` = '"
-//                    + CBDD.pretraiterChaineSQL(unOuvrage.getAnneeEdition())
-//                    + "', "
+                    //                    + "`anneeEdition` = '"
+                    //                    + CBDD.pretraiterChaineSQL(unOuvrage.getAnneeEdition())
+                    //                    + "', "
                     + "`langue` = '"
                     + CBDD.pretraiterChaineSQL(unOuvrage.getLangue())
                     + "', "
@@ -200,7 +222,7 @@ public class CTableOuvrages {
 //        Ouvrage livreDeux = new Ouvrage("0000000498", "Tanking the right way", "1", "2", "80", "1", "1", "2021", "English", "2");
 //        table.insererOuvrage(livreDeux); // Ca marche avec le jeu de valeur actuel
 //        table.supprimerOuvrage(livreTest);
-//        table.lireOuvrages();
+        table.lireOuvrages();
 //        livre.afficher();
 //        for (Ouvrage livre : table.lireOuvrages()) {
 //            System.out.println("--");

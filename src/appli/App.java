@@ -10,9 +10,12 @@ import entities.Bibliotheque;
 import services.CBDD;
 import services.CParametresStockageBDD;
 import IHM.JFrameBibliotheque;
+import IHM.JFrameConnection;
+import entities.Administre;
 import entities.Ouvrage;
 import java.util.ArrayList;
 import javax.swing.table.DefaultTableModel;
+import services.CTableAdministres;
 import services.CTableExemplaires;
 import services.CTableLivres;
 import services.CTableOuvrages;
@@ -27,37 +30,42 @@ public class App {
 
     public Bibliotheque biblio;
     public JFrameBibliotheque jFrameBiblio;
-    public AjoutLivre jDialog;
+    public AjoutLivre jDialogAjoutLivre;
+    public JFrameConnection jFrameConnection;
 //    public CTableLivres tableLivres; //TODO à commenter quand tout sera créer correctement ancienne table
     public CTableOuvrages tableOuvrages;
-
-    public CTableOuvrages getTableOuvrages() {
-        return tableOuvrages;
-    }
+    public CTableAdministres tableAdministres;
+    private Administre monAdministre;
 
     public void runBibliothequeIHM() {
 
             
         
         biblio = new Bibliotheque();
+        
+        jFrameConnection = new JFrameConnection(this);
+        
         jFrameBiblio = new JFrameBibliotheque(this); //On a créer un constructeur pour créer le lien de JframeBibliotheque vers App.
 //        this.jFrameBiblio.monApp = this; // Si on ne créer pas de constructeur qui demande une app dans JframeBibliotheque on peut faire ça
 
-        jDialog = new AjoutLivre(jFrameBiblio, true); //TODO WORKING ON IT ATM  
+        jDialogAjoutLivre = new AjoutLivre(jFrameBiblio, true);  
 //        ctable.setJframeBiblio(jFrameBiblio); // TODO DELETE ?
         tableOuvrages = new CTableOuvrages(new CBDD(new CParametresStockageBDD("parametresBdd.properties")));
-        this.majBiblio();
+        tableAdministres = new CTableAdministres(new CBDD(new CParametresStockageBDD("parametresBdd.properties")));
+//        this.majBiblio(); //On ne le fait que quand on se connecte pas avant
         //this.afficherListejTableBiblio();
 
         //this.setRowCountjTableBiblio(0);
         this.jFrameBiblio.getjTableBibliotheque().setRowSelectionInterval(0, 0);
-        jFrameBiblio.setVisible(true);
-//        jDialog.setVisible(true); //TODO A commenter quand on veut repassers sur le tableau en attendant d'avoir lié tout ça proprement
+        jFrameConnection.setVisible(true);
+//        jFrameBiblio.setVisible(true);
+//        jDialogAjoutLivre.setVisible(true); //TODO A commenter quand on veut repassers sur le tableau en attendant d'avoir lié tout ça proprement
       
     }
 
     public void majBiblio() {
-        biblio.setListeLivres(tableOuvrages.lireOuvrages());
+        biblio.setListeLivres(tableOuvrages.lireOuvrages(monAdministre));
+        
         this.afficherListejTableBiblio();
     }
 
@@ -66,6 +74,10 @@ public class App {
         model.setRowCount(rowCount);
         jFrameBiblio.getjTableBibliotheque().setModel(model); //A .setModel va venir écraser les anciennes lignes qu'on avait
         this.jFrameBiblio.idLivres = new String[rowCount]; //A Prépare un tableau d'ID de la taille du nb de livres déterminé au dessus
+    }
+
+    public Administre getMonAdministre() {
+        return monAdministre;
     }
 
     public void afficherListejTableBiblio() {
@@ -107,5 +119,9 @@ public class App {
     public static void main(String[] args) {
         new App().runBibliothequeIHM();
 
+    }
+
+    public void setMonAdministre(Administre monAdministre) {
+        this.monAdministre = monAdministre;
     }
 }

@@ -150,12 +150,13 @@ public class JFrameBibliotheque extends javax.swing.JFrame {
 
     private void addBookActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addBookActionPerformed
         //TODO add your handling code here:
-        // On veut  setVisible(true) la fenêtre jDialog
-        this.monApp.jDialog.setVisible(true);
+        // On veut  setVisible(true) la fenêtre jDialogAjoutLivre
+        this.monApp.jDialogAjoutLivre.setVisible(true);
     }//GEN-LAST:event_addBookActionPerformed
 
     private void removeBookActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_removeBookActionPerformed
         // TODO add your handling code here:
+        
     }//GEN-LAST:event_removeBookActionPerformed
 
     /**

@@ -18,14 +18,16 @@ public class Administre {
     private String telephone;
     private String email;
     private String adresse;
+    private String password;
 
-    public Administre(String id, String nom, String prenom, String telephone, String email, String adresse) {
+    public Administre(String id, String nom, String prenom, String telephone, String email, String adresse, String password) {
         this.id = id;
         this.nom = nom;
         this.prenom = prenom;
         this.telephone = telephone;
         this.email = email;
         this.adresse = adresse;
+        this.password = password;
     }
     
 
@@ -75,5 +77,13 @@ public class Administre {
 
     public void setAdresse(String adresse) {
         this.adresse = adresse;
+    }
+
+    public String getPassword() {
+        return password;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
     }
 }
