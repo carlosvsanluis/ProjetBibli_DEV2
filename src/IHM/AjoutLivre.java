@@ -5,6 +5,7 @@
  */
 package IHM;
 
+import appli.App;
 import entities.Ouvrage;
 import services.CBDD;
 import services.CParametresStockageBDD;
@@ -17,6 +18,7 @@ import services.CTableOuvrages;
 public class AjoutLivre extends javax.swing.JDialog {
 
     public CTableOuvrages tableOuvrages;
+    public App monApp;
 
     public void setTableOuvrages(CTableOuvrages tableOuvrages) {
         this.tableOuvrages = tableOuvrages;
@@ -216,17 +218,18 @@ public class AjoutLivre extends javax.swing.JDialog {
 
     private void jButtonAjouterLivreActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonAjouterLivreActionPerformed
         // TODO add your handling code here:
-//        System.out.println(jTextFieldAuteur.getText()); // just to check
         Ouvrage ouvrageInsere = new Ouvrage(jTextFieldTitre.getText(), jTextFieldAuteur.getText(), jTextFieldEdition.getText(), jTextFieldGenre.getText(), jTextFieldFormat.getText(), jTextFieldIsbn.getText());
         this.setTableOuvrages(new CTableOuvrages(new CBDD(new CParametresStockageBDD("parametresBdd.properties"))));
-        tableOuvrages.insererOuvrage(ouvrageInsere);
-
+        if (tableOuvrages.insererOuvrage(ouvrageInsere, this.monApp.getMonAdministre()  ) != -1) { //On vérifie que la requête s'exécute bien avant de fermer la page
+            this.setVisible(false);
+            this.monApp.majBiblio(); // tentative pour voir le nouveau livre s'afficher
+        }
     }//GEN-LAST:event_jButtonAjouterLivreActionPerformed
 
     private void jButtonAnnulerActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonAnnulerActionPerformed
         // TODO add your handling code here:
         this.setVisible(false);
-        
+
     }//GEN-LAST:event_jButtonAnnulerActionPerformed
 
     /**
@@ -287,4 +290,5 @@ public class AjoutLivre extends javax.swing.JDialog {
     private javax.swing.JTextField jTextFieldIsbn;
     private javax.swing.JTextField jTextFieldTitre;
     // End of variables declaration//GEN-END:variables
+
 }

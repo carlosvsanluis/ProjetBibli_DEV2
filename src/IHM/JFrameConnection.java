@@ -123,8 +123,8 @@ public class JFrameConnection extends javax.swing.JFrame {
             this.monApp.setMonAdministre(this.monApp.tableAdministres.lireAdministre(jTextFieldEmail.getText(), password ));
            
            this.monApp.jFrameBiblio.setVisible(true);
+           this.monApp.jFrameConnection.setVisible(false);
            this.monApp.majBiblio();
-                    System.out.println(this.monApp.getMonAdministre());
         }
     }//GEN-LAST:event_jButton1ActionPerformed
 

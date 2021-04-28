@@ -16,11 +16,7 @@ import entities.Ouvrage;
 import java.util.ArrayList;
 import javax.swing.table.DefaultTableModel;
 import services.CTableAdministres;
-import services.CTableExemplaires;
-import services.CTableLivres;
 import services.CTableOuvrages;
-
-        
 
 /**
  *
@@ -39,33 +35,34 @@ public class App {
 
     public void runBibliothequeIHM() {
 
-            
-        
         biblio = new Bibliotheque();
-        
+
         jFrameConnection = new JFrameConnection(this);
-        
+
         jFrameBiblio = new JFrameBibliotheque(this); //On a créer un constructeur pour créer le lien de JframeBibliotheque vers App.
 //        this.jFrameBiblio.monApp = this; // Si on ne créer pas de constructeur qui demande une app dans JframeBibliotheque on peut faire ça
 
-        jDialogAjoutLivre = new AjoutLivre(jFrameBiblio, true);  
+        jDialogAjoutLivre = new AjoutLivre(jFrameBiblio, true);
+//        this.jDialogAjoutLivre.getMonApp() = this; // Comment faire si l'attribut est privé ?
+        this.jDialogAjoutLivre.monApp = this;
+
 //        ctable.setJframeBiblio(jFrameBiblio); // TODO DELETE ?
-        tableOuvrages = new CTableOuvrages(new CBDD(new CParametresStockageBDD("parametresBdd.properties")));
+        tableOuvrages = new CTableOuvrages(new CBDD(new CParametresStockageBDD("parametresBdd.properties")), this);
         tableAdministres = new CTableAdministres(new CBDD(new CParametresStockageBDD("parametresBdd.properties")));
 //        this.majBiblio(); //On ne le fait que quand on se connecte pas avant
-        //this.afficherListejTableBiblio();
+//        this.afficherListejTableBiblio();
 
-        //this.setRowCountjTableBiblio(0);
+//        this.setRowCountjTableBiblio(0);
         this.jFrameBiblio.getjTableBibliotheque().setRowSelectionInterval(0, 0);
         jFrameConnection.setVisible(true);
 //        jFrameBiblio.setVisible(true);
 //        jDialogAjoutLivre.setVisible(true); //TODO A commenter quand on veut repassers sur le tableau en attendant d'avoir lié tout ça proprement
-      
+
     }
 
     public void majBiblio() {
         biblio.setListeLivres(tableOuvrages.lireOuvrages(monAdministre));
-        
+
         this.afficherListejTableBiblio();
     }
 

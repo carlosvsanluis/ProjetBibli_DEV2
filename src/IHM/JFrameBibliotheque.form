@@ -52,6 +52,8 @@
                       <Component id="addBook" min="-2" max="-2" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
                       <Component id="removeBook" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace max="-2" attributes="0"/>
+                      <Component id="modifyBook" min="-2" max="-2" attributes="0"/>
                   </Group>
               </Group>
               <EmptySpace pref="30" max="32767" attributes="0"/>
@@ -69,6 +71,7 @@
               <Group type="103" groupAlignment="3" attributes="0">
                   <Component id="addBook" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="removeBook" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="modifyBook" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace pref="176" max="32767" attributes="0"/>
           </Group>
@@ -144,7 +147,7 @@
     </Component>
     <Component class="javax.swing.JButton" name="addBook">
       <Properties>
-        <Property name="text" type="java.lang.String" value="TODO Ajouter un livre"/>
+        <Property name="text" type="java.lang.String" value="Ajouter un livre"/>
       </Properties>
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="addBookActionPerformed"/>
@@ -157,6 +160,11 @@
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="removeBookActionPerformed"/>
       </Events>
+    </Component>
+    <Component class="javax.swing.JButton" name="modifyBook">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="TODO Modifier le livre s&#xe9;lectionn&#xe9;"/>
+      </Properties>
     </Component>
   </SubComponents>
 </Form>

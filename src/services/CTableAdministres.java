@@ -65,7 +65,6 @@ public class CTableAdministres {
         } else {
             System.out.println("Connexion KO");
         }
-        System.out.println("");
         return unAdministre;
     }
 

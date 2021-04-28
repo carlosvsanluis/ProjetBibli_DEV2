@@ -54,6 +54,7 @@ public class JFrameBibliotheque extends javax.swing.JFrame {
         jLabelBibliotheque = new javax.swing.JLabel();
         addBook = new javax.swing.JButton();
         removeBook = new javax.swing.JButton();
+        modifyBook = new javax.swing.JButton();
 
         jDialog1.setAlwaysOnTop(true);
 
@@ -102,7 +103,7 @@ public class JFrameBibliotheque extends javax.swing.JFrame {
 
         jLabelBibliotheque.setText("Bibliotheque");
 
-        addBook.setText("TODO Ajouter un livre");
+        addBook.setText("Ajouter un livre");
         addBook.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 addBookActionPerformed(evt);
@@ -116,6 +117,8 @@ public class JFrameBibliotheque extends javax.swing.JFrame {
             }
         });
 
+        modifyBook.setText("TODO Modifier le livre sélectionné");
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -128,7 +131,9 @@ public class JFrameBibliotheque extends javax.swing.JFrame {
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(addBook)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(removeBook)))
+                        .addComponent(removeBook)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(modifyBook)))
                 .addContainerGap(30, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
@@ -141,7 +146,8 @@ public class JFrameBibliotheque extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(addBook)
-                    .addComponent(removeBook))
+                    .addComponent(removeBook)
+                    .addComponent(modifyBook))
                 .addContainerGap(176, Short.MAX_VALUE))
         );
 
@@ -203,6 +209,7 @@ public class JFrameBibliotheque extends javax.swing.JFrame {
     private javax.swing.JLabel jLabelBibliotheque;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTable jTableBibliotheque;
+    private javax.swing.JButton modifyBook;
     private javax.swing.JButton removeBook;
     // End of variables declaration//GEN-END:variables
 

@@ -5,6 +5,7 @@
  */
 package services;
 
+import appli.App;
 import entities.Administre;
 import entities.Ouvrage;
 import java.sql.ResultSet;
@@ -19,10 +20,17 @@ import java.util.logging.Logger;
  */
 public class CTableOuvrages {
 
+    public App monApp;
     protected CBDD bdd;
 
     public CTableOuvrages(CBDD bdd) {
         this.bdd = bdd;
+        this.monApp = monApp;
+    }
+
+    public CTableOuvrages(CBDD bdd, App monApp) {
+        this.bdd = bdd;
+        this.monApp = monApp;
     }
 
     public Ouvrage convertir_RS_Ouvrage(ResultSet rs) {
@@ -115,18 +123,20 @@ public class CTableOuvrages {
      * @param unOuvrage
      * @return
      */
-    public int insererOuvrage(Ouvrage unOuvrage) {
+    public int insererOuvrage(Ouvrage unOuvrage, Administre unAdministre) { //TODO Solution curieuse de rajouter l'administre à voir si il y a plus propre
         int res = -1;
         if (bdd.connecter() == true) {
             String req = "INSERT INTO `ouvrages` (`titreOuvrage`,`auteur`, `edition`,"
-                    + "`genre`, `format`, `isbnOuvrage`) "
+                    + "`genre`, `format`, `isbnOuvrage`, `idAdministre`) "
                     + "VALUES ('" + CBDD.pretraiterChaineSQL(unOuvrage.getTitre())
                     + "', '" + CBDD.pretraiterChaineSQL(unOuvrage.getAuteur())
                     + "', '" + CBDD.pretraiterChaineSQL(unOuvrage.getEdition())
                     + "', '" + CBDD.pretraiterChaineSQL(unOuvrage.getGenre())
                     + "', '" + CBDD.pretraiterChaineSQL(unOuvrage.getFormat())
                     + "', '" + CBDD.pretraiterChaineSQL(unOuvrage.getIsbn())
+                    + "', '" + CBDD.pretraiterChaineSQL(unAdministre.getId())
                     + "');";
+            System.out.println("");
             res = bdd.executerRequeteUpdate(req);
             bdd.deconnecter();
         } else {
@@ -134,7 +144,6 @@ public class CTableOuvrages {
         }
         return res;
     }
-//TODO AND DOWN FROM HERE
 
     public int supprimerOuvrage(Ouvrage unOuvrage) {
         int res = -1;
