@@ -18,7 +18,7 @@ import services.CTableOuvrages;
 public class AjoutLivre extends javax.swing.JDialog {
 
     public CTableOuvrages tableOuvrages;
-    public App monApp;
+    private App monApp;
 
     public void setTableOuvrages(CTableOuvrages tableOuvrages) {
         this.tableOuvrages = tableOuvrages;
@@ -232,6 +232,10 @@ public class AjoutLivre extends javax.swing.JDialog {
 
     }//GEN-LAST:event_jButtonAnnulerActionPerformed
 
+    public App getMonApp() {
+        return monApp;
+    }
+
     /**
      * @param args the command line arguments
      */
@@ -290,5 +294,9 @@ public class AjoutLivre extends javax.swing.JDialog {
     private javax.swing.JTextField jTextFieldIsbn;
     private javax.swing.JTextField jTextFieldTitre;
     // End of variables declaration//GEN-END:variables
+
+    public void setMonApp(App monApp) {
+        this.monApp = monApp;
+    }
 
 }

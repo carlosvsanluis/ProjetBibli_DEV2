@@ -33,7 +33,7 @@ public class App {
     public CTableAdministres tableAdministres;
     private Administre monAdministre;
 
-    public void runBibliothequeIHM() {
+    public void runBibliothequeIHM() { // Méthode qui se déclenche au démarrage de l'application.
 
         biblio = new Bibliotheque();
 
@@ -43,10 +43,9 @@ public class App {
 //        this.jFrameBiblio.monApp = this; // Si on ne créer pas de constructeur qui demande une app dans JframeBibliotheque on peut faire ça
 
         jDialogAjoutLivre = new AjoutLivre(jFrameBiblio, true);
-//        this.jDialogAjoutLivre.getMonApp() = this; // Comment faire si l'attribut est privé ?
-        this.jDialogAjoutLivre.monApp = this;
+        
+        this.jDialogAjoutLivre.setMonApp(this);  // Si l'attribut est privé on utilise un setter car l'attribut existe déjà bien que vide. 
 
-//        ctable.setJframeBiblio(jFrameBiblio); // TODO DELETE ?
         tableOuvrages = new CTableOuvrages(new CBDD(new CParametresStockageBDD("parametresBdd.properties")), this);
         tableAdministres = new CTableAdministres(new CBDD(new CParametresStockageBDD("parametresBdd.properties")));
 //        this.majBiblio(); //On ne le fait que quand on se connecte pas avant
@@ -71,10 +70,6 @@ public class App {
         model.setRowCount(rowCount);
         jFrameBiblio.getjTableBibliotheque().setModel(model); //A .setModel va venir écraser les anciennes lignes qu'on avait
         this.jFrameBiblio.idLivres = new String[rowCount]; //A Prépare un tableau d'ID de la taille du nb de livres déterminé au dessus
-    }
-
-    public Administre getMonAdministre() {
-        return monAdministre;
     }
 
     public void afficherListejTableBiblio() {
@@ -116,6 +111,10 @@ public class App {
     public static void main(String[] args) {
         new App().runBibliothequeIHM();
 
+    }
+
+    public Administre getMonAdministre() {
+        return monAdministre;
     }
 
     public void setMonAdministre(Administre monAdministre) {

@@ -118,10 +118,10 @@ public class CTableOuvrages {
     }
 
     /**
-     * TODO MODIFIER LA METHODE
-     *
+     * Méthode permettant d'insérer un ouvrage dans le tableau de l'application.
+     * Utilise un ouvrage et un administre en paramètre (l'administre est nécessaire pour insérer le bon ID)
      * @param unOuvrage
-     * @return
+     * @return res
      */
     public int insererOuvrage(Ouvrage unOuvrage, Administre unAdministre) { //TODO Solution curieuse de rajouter l'administre à voir si il y a plus propre
         int res = -1;

@@ -18,7 +18,7 @@ public class JFrameConnection extends javax.swing.JFrame {
     /**
      * Creates new form JFrameConnection
      */
-    public JFrameConnection(App uneApp) {
+    public JFrameConnection(App uneApp) { // Nouveau constructeur pour contraindre à associer une app à la frame.
         this.monApp = uneApp;
         initComponents();
     }
@@ -113,8 +113,8 @@ public class JFrameConnection extends javax.swing.JFrame {
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
         // On va devoir comparer un résultat de notre requete qui sera surement une string avec les infos dans nos champs
-        // On va surement utiliser assertequals ?? Ici ou dans le controleur ? Plutôt dans le controleur à priori. 
-        String password = new String(jPasswordFieldMdp.getPassword());
+        // On va surement utiliser assertequals ?? Ici ou dans le controleur ? Plutôt dans le controleur à priori.
+        String password = new String(jPasswordFieldMdp.getPassword()); // manipulation de type pour éviter le char(x) qui posait problème.
         
         
         if (this.monApp.tableAdministres.lireAdministre(jTextFieldEmail.getText(), password ) != null )

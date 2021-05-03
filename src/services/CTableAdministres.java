@@ -56,7 +56,7 @@ public class CTableAdministres {
                     + "' AND `password` = '"+ password + "';");
             try {
                 if (rs.next()) {
-                    unAdministre = convertir_RS_Administre(rs);
+                    unAdministre = convertir_RS_Administre(rs); //Ne pas oublier de vérifier cette méthode elle est très importante et permet de transformer un objet rs en Administre
                 }
             } catch (SQLException ex) {
                 Logger.getLogger(CBDD.class.getName()).log(Level.SEVERE, null, ex);
