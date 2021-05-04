@@ -41,13 +41,13 @@ public class CTableOuvrages {
             String edition = rs.getString(4);
             String genre = rs.getString(5);
             String format = rs.getString(6);
-            String isbn = rs.getString(7);
-            String ref = rs.getString(8);
-            String nbPages = rs.getString(9);
-            String langue = rs.getString(10);
-            String anneeEdition = rs.getString(11);
+            String anneeEdition = rs.getString(7);
+            String isbn = rs.getString(8);
+            String ref = rs.getString(9);
+            String nbPages = rs.getString(10);
+            String langue = rs.getString(11);
 
-            Ouvrage livre = new Ouvrage(id, titre, auteur, edition, genre, format, isbn);
+            Ouvrage livre = new Ouvrage(id, titre, auteur, edition, genre, format, anneeEdition, isbn);
 
             return livre;
         } catch (SQLException ex) {
@@ -121,18 +121,20 @@ public class CTableOuvrages {
      * Méthode permettant d'insérer un ouvrage dans le tableau de l'application.
      * Utilise un ouvrage et un administre en paramètre (l'administre est nécessaire pour insérer le bon ID)
      * @param unOuvrage
+     * @param unAdministre
      * @return res
      */
     public int insererOuvrage(Ouvrage unOuvrage, Administre unAdministre) { //TODO Solution curieuse de rajouter l'administre à voir si il y a plus propre
         int res = -1;
         if (bdd.connecter() == true) {
             String req = "INSERT INTO `ouvrages` (`titreOuvrage`,`auteur`, `edition`,"
-                    + "`genre`, `format`, `isbnOuvrage`, `idAdministre`) "
+                    + "`genre`, `format`,`anneeeditionOuvrage`, `isbnOuvrage`, `idAdministre`) "
                     + "VALUES ('" + CBDD.pretraiterChaineSQL(unOuvrage.getTitre())
                     + "', '" + CBDD.pretraiterChaineSQL(unOuvrage.getAuteur())
                     + "', '" + CBDD.pretraiterChaineSQL(unOuvrage.getEdition())
                     + "', '" + CBDD.pretraiterChaineSQL(unOuvrage.getGenre())
                     + "', '" + CBDD.pretraiterChaineSQL(unOuvrage.getFormat())
+                    + "', '" + CBDD.pretraiterChaineSQL(unOuvrage.getAnneeEdition())
                     + "', '" + CBDD.pretraiterChaineSQL(unOuvrage.getIsbn())
                     + "', '" + CBDD.pretraiterChaineSQL(unAdministre.getId())
                     + "');";

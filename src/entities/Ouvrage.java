@@ -25,7 +25,7 @@ public class Ouvrage {
     private String nbrePages;
     private String edition;
     private String genre;
-//    private String anneeEdition;
+    private String anneeEdition;
     private String langue;
     private String format;
 
@@ -42,25 +42,29 @@ public class Ouvrage {
 //        this.langue = langue;
 //        this.format = format;
 //    }
-    public Ouvrage(String id, String titre, String auteur, String edition, String genre, String format, String isbn) {
-        this.id = id;
+//   
+
+    // Constructeur nécessaire pour la LECTURE de la DB car on veut garder nos ID pour de futur traitement.
+    public Ouvrage(String id, String titre, String auteur, String edition, String genre, String format, String anneeEdition, String isbn) {
+        this.id = id; // 
         this.titre = titre;
         this.auteur = auteur;
         this.edition = edition;
         this.genre = genre;
         this.format = format;
+        this.anneeEdition = anneeEdition;
         this.isbn = isbn;
 
     }
-
-    // Constructeur SANS ID pour l'insertion en DB.
-    public Ouvrage(String titre, String auteur, String edition, String genre, String format, String isbn) {
+    // Constructeur SANS ID pour l'insertion en DB étant donné que notre champs est en auto-increment.
+    public Ouvrage(String titre, String auteur, String edition, String genre, String format, String anneeEdition, String isbn) {
 //        this.id = id; // Constructeur SANS ID pour l'insertion en DB.
         this.titre = titre;
         this.auteur = auteur;
         this.edition = edition;
         this.genre = genre;
         this.format = format;
+        this.anneeEdition = anneeEdition;
         this.isbn = isbn;
 
     }
@@ -163,6 +167,10 @@ public class Ouvrage {
 
     public void setGenre(String genre) {
         this.genre = genre;
+    }
+
+    public String getAnneeEdition() {
+        return anneeEdition;
     }
 
 }

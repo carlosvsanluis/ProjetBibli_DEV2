@@ -26,18 +26,22 @@ import services.CTableExemplaires;
 public class JFrameBibliotheque extends javax.swing.JFrame {
 
     public String[] idLivres;
-    public App monApp;
+    private App monApp;
 
     /**
      * Creates new form JFrameBibliothèque
+     * Dans l'idéal d'un rendu très propre il faudrait le comment pour s'assurer qu'on appelle que l'autre mais pour le moment il faut "jouer safe"
      */
-    public JFrameBibliotheque(App uneApp ) { // On créer un constructeur qui oblige de créer le lien avec l'application pour que Jframe puisse l'utiliser.
-        this.monApp = uneApp;
-        initComponents();
-    }
     public JFrameBibliotheque() {
         initComponents();
     }
+    
+    // On créer un constructeur qui oblige de créer le lien avec l'application pour que Jframe puisse l'utiliser.
+    public JFrameBibliotheque(App uneApp ) { 
+        this.monApp = uneApp;
+        initComponents();
+    }
+    
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -73,20 +77,20 @@ public class JFrameBibliotheque extends javax.swing.JFrame {
 
         jTableBibliotheque.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null}
+                {null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null}
             },
             new String [] {
-                "Titre", "Auteur", "Edition", "Genre", "Format", "Isbn"
+                "Titre", "Auteur", "Edition", "Genre", "Format", "Année d'éditions", "Isbn"
             }
         ) {
             Class[] types = new Class [] {
-                java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.Object.class
+                java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.Object.class, java.lang.Object.class
             };
             boolean[] canEdit = new boolean [] {
-                false, false, false, false, false, false
+                false, false, false, false, false, false, false
             };
 
             public Class getColumnClass(int columnIndex) {

@@ -24,12 +24,11 @@
     <DimensionLayout dim="0">
       <Group type="103" groupAlignment="0" attributes="0">
           <Group type="102" alignment="1" attributes="0">
-              <EmptySpace pref="105" max="32767" attributes="0"/>
+              <EmptySpace pref="83" max="32767" attributes="0"/>
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" alignment="0" attributes="0">
-                      <EmptySpace min="-2" pref="29" max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="0" attributes="0">
-                          <Component id="jLabelIsbn" alignment="1" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace min="-2" pref="51" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="1" attributes="0">
                           <Component id="jLabelTitre" alignment="1" min="-2" max="-2" attributes="0"/>
                           <Component id="jLabelAuteur" alignment="1" min="-2" max="-2" attributes="0"/>
                           <Component id="jLabelEdition" alignment="1" min="-2" max="-2" attributes="0"/>
@@ -37,23 +36,35 @@
                           <Component id="jLabelFormat" alignment="1" min="-2" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="0" attributes="0">
-                          <Group type="103" alignment="0" groupAlignment="1" max="-2" attributes="0">
-                              <Component id="jTextFieldFormat" alignment="1" max="32767" attributes="0"/>
-                              <Component id="jTextFieldGenre" alignment="1" max="32767" attributes="0"/>
-                              <Component id="jTextFieldIsbn" alignment="1" min="-2" pref="60" max="-2" attributes="0"/>
-                          </Group>
-                          <Group type="103" alignment="0" groupAlignment="1" max="-2" attributes="0">
-                              <Component id="jTextFieldAuteur" alignment="1" max="32767" attributes="0"/>
-                              <Component id="jTextFieldTitre" alignment="1" max="32767" attributes="0"/>
-                              <Component id="jTextFieldEdition" alignment="1" min="-2" pref="60" max="-2" attributes="0"/>
-                          </Group>
+                      <Group type="103" groupAlignment="1" max="-2" attributes="0">
+                          <Component id="jTextFieldAuteur" alignment="1" max="32767" attributes="0"/>
+                          <Component id="jTextFieldTitre" alignment="1" max="32767" attributes="0"/>
+                          <Component id="jTextFieldEdition" alignment="1" min="-2" pref="60" max="-2" attributes="0"/>
                       </Group>
                   </Group>
                   <Group type="102" alignment="0" attributes="0">
+                      <EmptySpace min="-2" pref="22" max="-2" attributes="0"/>
                       <Component id="jButtonAnnuler" linkSize="1" min="-2" max="-2" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
                       <Component id="jButtonAjouterLivre" linkSize="1" min="-2" max="-2" attributes="0"/>
+                  </Group>
+                  <Group type="102" alignment="0" attributes="0">
+                      <EmptySpace min="-2" pref="65" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="1" attributes="0">
+                          <Component id="jTextFieldFormat" alignment="1" min="-2" pref="60" max="-2" attributes="0"/>
+                          <Group type="102" attributes="0">
+                              <Component id="jLabelIsbn" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                              <Component id="jTextFieldIsbn" min="-2" pref="60" max="-2" attributes="0"/>
+                          </Group>
+                          <Component id="jTextFieldGenre" alignment="1" min="-2" pref="60" max="-2" attributes="0"/>
+                      </Group>
+                  </Group>
+                  <Group type="102" alignment="1" attributes="0">
+                      <Component id="jLabelAnneeEdition" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                      <Component id="jTextFieldAnneeEdition" min="-2" pref="60" max="-2" attributes="0"/>
+                      <EmptySpace min="-2" pref="86" max="-2" attributes="0"/>
                   </Group>
               </Group>
               <EmptySpace min="-2" pref="95" max="-2" attributes="0"/>
@@ -88,17 +99,22 @@
                   <Component id="jTextFieldFormat" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="jLabelFormat" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
+              <EmptySpace max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="0" attributes="0">
+                  <Component id="jLabelAnneeEdition" min="-2" max="-2" attributes="0"/>
+                  <Component id="jTextFieldAnneeEdition" min="-2" pref="20" max="-2" attributes="0"/>
+              </Group>
               <EmptySpace type="unrelated" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
                   <Component id="jTextFieldIsbn" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="jLabelIsbn" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
-              <EmptySpace type="separate" max="-2" attributes="0"/>
+              <EmptySpace min="-2" pref="40" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="0" attributes="0">
                   <Component id="jButtonAjouterLivre" alignment="1" min="-2" max="-2" attributes="0"/>
                   <Component id="jButtonAnnuler" alignment="1" min="-2" max="-2" attributes="0"/>
               </Group>
-              <EmptySpace pref="62" max="32767" attributes="0"/>
+              <EmptySpace max="32767" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -179,6 +195,16 @@
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButtonAnnulerActionPerformed"/>
       </Events>
+    </Component>
+    <Component class="javax.swing.JTextField" name="jTextFieldAnneeEdition">
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jTextFieldAnneeEditionActionPerformed"/>
+      </Events>
+    </Component>
+    <Component class="javax.swing.JLabel" name="jLabelAnneeEdition">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Ann&#xe9;es d&apos;&#xe9;ditions"/>
+      </Properties>
     </Component>
   </SubComponents>
 </Form>

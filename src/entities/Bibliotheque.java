@@ -22,7 +22,7 @@ public class Bibliotheque {
      * Notre bibliothèque contient des livres, on va donc avoir besoin d'un
      * attribut où les ranger.
      */
-    private ArrayList<Ouvrage> listeLivres = new ArrayList<Ouvrage>();
+    private ArrayList<Ouvrage> listeOuvrages = new ArrayList<Ouvrage>();
 
     /**
      * Méthode pour enregistre un livre dans la liste en attribut.
@@ -30,7 +30,7 @@ public class Bibliotheque {
      * @param unOuvrage le livre à ajouter
      */
     public void enregistrerLivre(Ouvrage unOuvrage) {
-        this.listeLivres.add(unOuvrage);
+        this.listeOuvrages.add(unOuvrage);
     }
 
 //    /**
@@ -51,11 +51,11 @@ public class Bibliotheque {
 //        return livre;
 //    }
 
-    public void setListeLivres(ArrayList<Ouvrage> listeLivres) {
-        this.listeLivres = listeLivres;
+    public void setListeOuvrages(ArrayList<Ouvrage> listeLivres) {
+        this.listeOuvrages = listeLivres;
     }
 
     public ArrayList<Ouvrage> getListeLivres() {
-        return listeLivres;
+        return listeOuvrages;
     }
 }

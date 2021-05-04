@@ -55,6 +55,8 @@ public class AjoutLivre extends javax.swing.JDialog {
         jTextFieldIsbn = new javax.swing.JTextField();
         jButtonAjouterLivre = new javax.swing.JButton();
         jButtonAnnuler = new javax.swing.JButton();
+        jTextFieldAnneeEdition = new javax.swing.JTextField();
+        jLabelAnneeEdition = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
@@ -120,36 +122,53 @@ public class AjoutLivre extends javax.swing.JDialog {
             }
         });
 
+        jTextFieldAnneeEdition.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jTextFieldAnneeEditionActionPerformed(evt);
+            }
+        });
+
+        jLabelAnneeEdition.setText("Années d'éditions");
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(105, Short.MAX_VALUE)
+                .addContainerGap(83, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(29, 29, 29)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabelIsbn, javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(jLabelTitre, javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(jLabelAuteur, javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(jLabelEdition, javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(jLabelGenre, javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(jLabelFormat, javax.swing.GroupLayout.Alignment.TRAILING))
+                        .addGap(51, 51, 51)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(jLabelTitre)
+                            .addComponent(jLabelAuteur)
+                            .addComponent(jLabelEdition)
+                            .addComponent(jLabelGenre)
+                            .addComponent(jLabelFormat))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                                .addComponent(jTextFieldFormat)
-                                .addComponent(jTextFieldGenre)
-                                .addComponent(jTextFieldIsbn, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                                .addComponent(jTextFieldAuteur)
-                                .addComponent(jTextFieldTitre)
-                                .addComponent(jTextFieldEdition, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                            .addComponent(jTextFieldAuteur)
+                            .addComponent(jTextFieldTitre)
+                            .addComponent(jTextFieldEdition, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addGroup(layout.createSequentialGroup()
+                        .addGap(22, 22, 22)
                         .addComponent(jButtonAnnuler)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jButtonAjouterLivre)))
+                        .addComponent(jButtonAjouterLivre))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(65, 65, 65)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(jTextFieldFormat, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(jLabelIsbn)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(jTextFieldIsbn, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(jTextFieldGenre, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addComponent(jLabelAnneeEdition)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(jTextFieldAnneeEdition, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(86, 86, 86)))
                 .addGap(95, 95, 95))
         );
 
@@ -178,15 +197,19 @@ public class AjoutLivre extends javax.swing.JDialog {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jTextFieldFormat, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabelFormat))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabelAnneeEdition)
+                    .addComponent(jTextFieldAnneeEdition, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jTextFieldIsbn, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabelIsbn))
-                .addGap(18, 18, 18)
+                .addGap(40, 40, 40)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jButtonAjouterLivre, javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(jButtonAnnuler, javax.swing.GroupLayout.Alignment.TRAILING))
-                .addContainerGap(62, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         pack();
@@ -218,11 +241,12 @@ public class AjoutLivre extends javax.swing.JDialog {
 
     private void jButtonAjouterLivreActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonAjouterLivreActionPerformed
         // TODO add your handling code here:
-        Ouvrage ouvrageInsere = new Ouvrage(jTextFieldTitre.getText(), jTextFieldAuteur.getText(), jTextFieldEdition.getText(), jTextFieldGenre.getText(), jTextFieldFormat.getText(), jTextFieldIsbn.getText());
+        //  ci-dessous On créer un objet ouvrage via les informations rentrées par notre utilisateur.
+        Ouvrage ouvrageInsere = new Ouvrage(jTextFieldTitre.getText(), jTextFieldAuteur.getText(), jTextFieldEdition.getText(), jTextFieldGenre.getText(), jTextFieldFormat.getText(), jTextFieldAnneeEdition.getText(), jTextFieldIsbn.getText());
         this.setTableOuvrages(new CTableOuvrages(new CBDD(new CParametresStockageBDD("parametresBdd.properties"))));
         if (tableOuvrages.insererOuvrage(ouvrageInsere, this.monApp.getMonAdministre()  ) != -1) { //On vérifie que la requête s'exécute bien avant de fermer la page
             this.setVisible(false);
-            this.monApp.majBiblio(); // tentative pour voir le nouveau livre s'afficher
+            this.monApp.majBiblio(); // On met à jour notre tableau afin d'afficher le livre que l'on vient d'insérer.
         }
     }//GEN-LAST:event_jButtonAjouterLivreActionPerformed
 
@@ -231,6 +255,10 @@ public class AjoutLivre extends javax.swing.JDialog {
         this.setVisible(false);
 
     }//GEN-LAST:event_jButtonAnnulerActionPerformed
+
+    private void jTextFieldAnneeEditionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldAnneeEditionActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jTextFieldAnneeEditionActionPerformed
 
     public App getMonApp() {
         return monApp;
@@ -281,12 +309,14 @@ public class AjoutLivre extends javax.swing.JDialog {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButtonAjouterLivre;
     private javax.swing.JButton jButtonAnnuler;
+    private javax.swing.JLabel jLabelAnneeEdition;
     private javax.swing.JLabel jLabelAuteur;
     private javax.swing.JLabel jLabelEdition;
     private javax.swing.JLabel jLabelFormat;
     private javax.swing.JLabel jLabelGenre;
     private javax.swing.JLabel jLabelIsbn;
     private javax.swing.JLabel jLabelTitre;
+    private javax.swing.JTextField jTextFieldAnneeEdition;
     private javax.swing.JTextField jTextFieldAuteur;
     private javax.swing.JTextField jTextFieldEdition;
     private javax.swing.JTextField jTextFieldFormat;

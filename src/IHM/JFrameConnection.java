@@ -112,19 +112,16 @@ public class JFrameConnection extends javax.swing.JFrame {
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
-        // On va devoir comparer un résultat de notre requete qui sera surement une string avec les infos dans nos champs
-        // On va surement utiliser assertequals ?? Ici ou dans le controleur ? Plutôt dans le controleur à priori.
-        String password = new String(jPasswordFieldMdp.getPassword()); // manipulation de type pour éviter le char(x) qui posait problème.
-        
-        
-        if (this.monApp.tableAdministres.lireAdministre(jTextFieldEmail.getText(), password ) != null )
-                {
-           
-            this.monApp.setMonAdministre(this.monApp.tableAdministres.lireAdministre(jTextFieldEmail.getText(), password ));
-           
-           this.monApp.jFrameBiblio.setVisible(true);
-           this.monApp.jFrameConnection.setVisible(false);
-           this.monApp.majBiblio();
+        String password = new String(jPasswordFieldMdp.getPassword()); // manipulation de type pour éviter le char(x) bidule de base de jPasswordField qui posait problème.
+
+        if (this.monApp.tableAdministres.lireAdministre(jTextFieldEmail.getText(), password) != null) // si notre méthode lireAdministre retourne bien un Administre alors on rentre dans la boucle
+        {
+
+            this.monApp.setMonAdministre(this.monApp.tableAdministres.lireAdministre(jTextFieldEmail.getText(), password)); //On récupère les infos de notre utilisateurs connectés pour les utiliser dans nos opérations de CRUD
+
+            this.monApp.jFrameBiblio.setVisible(true);
+            this.monApp.jFrameConnection.setVisible(false);
+            this.monApp.majBiblio(); //On met à jour la liste des livres du tableau.
         }
     }//GEN-LAST:event_jButton1ActionPerformed
 
