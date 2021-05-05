@@ -51,7 +51,7 @@ public class App {
         tableAdministres = new CTableAdministres(new CBDD(new CParametresStockageBDD("parametresBdd.properties")));
 //        this.majBiblio(); //Désormais on ne peut l'appeller qu'avec un Administre car on a modifié la méthode lireOuvrages. On ne l'appelle donc plus au lancement mais quand une connexion s'effectue avec succès.
 
-        this.jFrameBiblio.getjTableBibliotheque().setRowSelectionInterval(0, 0);
+//        this.jFrameBiblio.getjTableBibliotheque().setRowSelectionInterval(0, 0);
         jFrameConnection.setVisible(true);
 
     }
@@ -68,6 +68,7 @@ public class App {
 
         this.afficherListejTableBiblio();
     }
+    
 
     /**
      * Créer le tableau vide dans la frame Bibliothèque. NE PAS L'APPELLER
@@ -91,21 +92,28 @@ public class App {
     public void afficherListejTableBiblio() {
         this.setRowCountjTableBiblio(this.biblio.getListeLivres().size()); // créer un tableau vide dans la jframe de la taille du nb de livres
 
-        for (int i = 0; i < this.biblio.getListeLivres().size(); i++) { // On ajoute ensuite les données.
+        // On ajoute ensuite les données.
+        for (int i = 0; i < this.biblio.getListeLivres().size(); i++) {
             this.jFrameBiblio.idLivres[i] = this.biblio.getListeLivres().get(i).getId();
-            this.jFrameBiblio.getjTableBibliotheque().setValueAt(this.biblio.getListeLivres().get(i).getTitre(), i, 0);
-            this.jFrameBiblio.getjTableBibliotheque().setValueAt(this.biblio.getListeLivres().get(i).getAuteur(), i, 1);
+            this.jFrameBiblio.getjTableBibliotheque().setValueAt(this.biblio.getListeLivres().get(i).getId(), i, 0);
+            this.jFrameBiblio.getjTableBibliotheque().setValueAt(this.biblio.getListeLivres().get(i).getTitre(), i, 1);
+            this.jFrameBiblio.getjTableBibliotheque().setValueAt(this.biblio.getListeLivres().get(i).getAuteur(), i, 2);
 //            this.jFrameBiblio.getjTableBibliotheque().setValueAt(this.biblio.getListeLivres().get(i).getRef(), i, 2);
 //            this.jFrameBiblio.getjTableBibliotheque().setValueAt(this.biblio.getListeLivres().get(i).getNbrePages(), i, 3);
-            this.jFrameBiblio.getjTableBibliotheque().setValueAt(this.biblio.getListeLivres().get(i).getEdition(), i, 2);
-            this.jFrameBiblio.getjTableBibliotheque().setValueAt(this.biblio.getListeLivres().get(i).getGenre(), i, 3);
+            this.jFrameBiblio.getjTableBibliotheque().setValueAt(this.biblio.getListeLivres().get(i).getEdition(), i, 3);
+            this.jFrameBiblio.getjTableBibliotheque().setValueAt(this.biblio.getListeLivres().get(i).getGenre(), i, 4);
 //            this.jFrameBiblio.getjTableBibliotheque().setValueAt(this.biblio.getListeLivres().get(i).getLangue(), i, 7);
-            this.jFrameBiblio.getjTableBibliotheque().setValueAt(this.biblio.getListeLivres().get(i).getFormat(), i, 4);
-            this.jFrameBiblio.getjTableBibliotheque().setValueAt(this.biblio.getListeLivres().get(i).getAnneeEdition(), i, 5);
-            this.jFrameBiblio.getjTableBibliotheque().setValueAt(this.biblio.getListeLivres().get(i).getIsbn(), i, 6);
+            this.jFrameBiblio.getjTableBibliotheque().setValueAt(this.biblio.getListeLivres().get(i).getFormat(), i, 5);
+            this.jFrameBiblio.getjTableBibliotheque().setValueAt(this.biblio.getListeLivres().get(i).getAnneeEdition(), i, 6);
+            this.jFrameBiblio.getjTableBibliotheque().setValueAt(this.biblio.getListeLivres().get(i).getIsbn(), i, 7);
+//            this.retirerColomneGauche();
+
         }
     }
 
+    public void retirerColomneGauche(){
+        this.jFrameBiblio.getjTableBibliotheque().removeColumn(this.jFrameBiblio.getjTableBibliotheque().getColumnModel().getColumn(0));
+    }
 //    /**
 //     * Ancienne méthode qui fonctionnait en appelant la liste de notre
 //     * bibliothque on ne l'utilise pas actuellement.

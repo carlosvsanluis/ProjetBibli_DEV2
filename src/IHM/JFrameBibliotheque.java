@@ -6,7 +6,6 @@
 package IHM;
 
 import appli.App;
-import entities.Exemplaire;
 import java.awt.AWTException;
 import static java.awt.Event.ENTER;
 import java.awt.Robot;
@@ -17,7 +16,6 @@ import javax.swing.JComboBox;
 import javax.swing.JTable;
 import javax.swing.JTextField;
 import javax.swing.event.ChangeEvent;
-import services.CTableExemplaires;
 
 /**
  *
@@ -29,19 +27,19 @@ public class JFrameBibliotheque extends javax.swing.JFrame {
     private App monApp;
 
     /**
-     * Creates new form JFrameBibliothèque
-     * Dans l'idéal d'un rendu très propre il faudrait le comment pour s'assurer qu'on appelle que l'autre mais pour le moment il faut "jouer safe"
+     * Creates new form JFrameBibliothèque Dans l'idéal d'un rendu très propre
+     * il faudrait le comment pour s'assurer qu'on appelle que l'autre mais pour
+     * le moment il faut "jouer safe"
      */
     public JFrameBibliotheque() {
         initComponents();
     }
-    
+
     // On créer un constructeur qui oblige de créer le lien avec l'application pour que Jframe puisse l'utiliser.
-    public JFrameBibliotheque(App uneApp ) { 
+    public JFrameBibliotheque(App uneApp) {
         this.monApp = uneApp;
         initComponents();
     }
-    
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -58,7 +56,7 @@ public class JFrameBibliotheque extends javax.swing.JFrame {
         jLabelBibliotheque = new javax.swing.JLabel();
         addBook = new javax.swing.JButton();
         removeBook = new javax.swing.JButton();
-        modifyBook = new javax.swing.JButton();
+        editBook = new javax.swing.JButton();
 
         jDialog1.setAlwaysOnTop(true);
 
@@ -77,20 +75,20 @@ public class JFrameBibliotheque extends javax.swing.JFrame {
 
         jTableBibliotheque.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null}
+                {null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null}
             },
             new String [] {
-                "Titre", "Auteur", "Edition", "Genre", "Format", "Année d'éditions", "Isbn"
+                "int", "Titre", "Auteur", "Edition", "Genre", "Format", "Année d'éditions", "Isbn"
             }
         ) {
             Class[] types = new Class [] {
-                java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.Object.class, java.lang.Object.class
+                java.lang.Integer.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.Object.class, java.lang.Object.class
             };
             boolean[] canEdit = new boolean [] {
-                false, false, false, false, false, false, false
+                false, false, false, false, false, false, false, false
             };
 
             public Class getColumnClass(int columnIndex) {
@@ -102,6 +100,9 @@ public class JFrameBibliotheque extends javax.swing.JFrame {
             }
         });
         jTableBibliotheque.setColumnSelectionAllowed(true);
+        jTableBibliotheque.setFocusable(false);
+        jTableBibliotheque.setRowSelectionAllowed(true);
+        jTableBibliotheque.getTableHeader().setReorderingAllowed(false);
         jScrollPane1.setViewportView(jTableBibliotheque);
         jTableBibliotheque.getColumnModel().getSelectionModel().setSelectionMode(javax.swing.ListSelectionModel.SINGLE_INTERVAL_SELECTION);
 
@@ -121,7 +122,12 @@ public class JFrameBibliotheque extends javax.swing.JFrame {
             }
         });
 
-        modifyBook.setText("TODO Modifier le livre sélectionné");
+        editBook.setText("TODO modifier le livre select");
+        editBook.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                editBookActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -137,7 +143,7 @@ public class JFrameBibliotheque extends javax.swing.JFrame {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(removeBook)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(modifyBook)))
+                        .addComponent(editBook)))
                 .addContainerGap(30, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
@@ -151,7 +157,7 @@ public class JFrameBibliotheque extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(addBook)
                     .addComponent(removeBook)
-                    .addComponent(modifyBook))
+                    .addComponent(editBook))
                 .addContainerGap(176, Short.MAX_VALUE))
         );
 
@@ -166,8 +172,23 @@ public class JFrameBibliotheque extends javax.swing.JFrame {
 
     private void removeBookActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_removeBookActionPerformed
         // TODO add your handling code here:
-        
+        // On veut supprimer le livre qui est actuellement sélectionné dans le tableau. Il va falloir faire une petite recherche dans les méthodes des jtable pour bien cibler un row.
+        // Ou peut-être juste appeller une méthode qui va supprimer celui sélectionné de la DB puis mettre à jour via majBiblio()
+//        String idLivre = new String (jTableBibliotheque.getSelectedRow());
+
+//        this.monApp.tableOuvrages.supprimerOuvrage(jTableBibliotheque.getSelectedRow()); //Doute sur la nature de l'id qu'il va récupérer. Est-ce la valeur dans java ou l'id de notre db ?
+        // C'est bien le cas de décrit juste avant.
+//this.monApp.retirerColomneGauche();
+//        jTableBibliotheque.set
+//        this.monApp.majBiblio();
     }//GEN-LAST:event_removeBookActionPerformed
+
+    private void editBookActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_editBookActionPerformed
+        // TODO add your handling code here:
+        // On va essayer d'ouvrir une nouvelle fenêtre de type jdialog avec des jtextfield rempli avec les valeurs de la colonne sélectionnée dans jFrameBibliotheque.
+        //Créer un objet qu'on donne dans la fenêtre des jtextfields ?
+//        jTableBibliotheque.getValueAt(int row, int column) //maybe cette méthode sera utiliser dans la nouvelle fenêtre ? Il faudra pouvoir accéder à la table de la fenêtre parent.
+    }//GEN-LAST:event_editBookActionPerformed
 
     /**
      * @param args the command line arguments
@@ -209,11 +230,11 @@ public class JFrameBibliotheque extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton addBook;
+    private javax.swing.JButton editBook;
     private javax.swing.JDialog jDialog1;
     private javax.swing.JLabel jLabelBibliotheque;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTable jTableBibliotheque;
-    private javax.swing.JButton modifyBook;
     private javax.swing.JButton removeBook;
     // End of variables declaration//GEN-END:variables
 

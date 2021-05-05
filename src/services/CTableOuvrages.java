@@ -119,7 +119,9 @@ public class CTableOuvrages {
 
     /**
      * Méthode permettant d'insérer un ouvrage dans le tableau de l'application.
-     * Utilise un ouvrage et un administre en paramètre (l'administre est nécessaire pour insérer le bon ID)
+     * Utilise un ouvrage et un administre en paramètre (l'administre est
+     * nécessaire pour insérer le bon ID)
+     *
      * @param unOuvrage
      * @param unAdministre
      * @return res
@@ -159,10 +161,10 @@ public class CTableOuvrages {
         return res;
     }
 
-    public int supprimerOuvrage(String idOuvrage) {
+    public int supprimerOuvrage(int idOuvrage) {
         int res = -1;
         if (bdd.connecter() == true) {
-            String req = "DELETE FROM `auteurs` WHERE `id` = " + idOuvrage;
+            String req = "DELETE FROM `ouvrages` WHERE `idOuvrage` = " + idOuvrage;
             res = bdd.executerRequeteUpdate(req);
             bdd.deconnecter();
         } else {

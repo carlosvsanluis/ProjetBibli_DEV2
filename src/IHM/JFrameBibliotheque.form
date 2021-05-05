@@ -53,7 +53,7 @@
                       <EmptySpace max="-2" attributes="0"/>
                       <Component id="removeBook" min="-2" max="-2" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
-                      <Component id="modifyBook" min="-2" max="-2" attributes="0"/>
+                      <Component id="editBook" min="-2" max="-2" attributes="0"/>
                   </Group>
               </Group>
               <EmptySpace pref="30" max="32767" attributes="0"/>
@@ -71,7 +71,7 @@
               <Group type="103" groupAlignment="3" attributes="0">
                   <Component id="addBook" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="removeBook" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="modifyBook" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="editBook" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace pref="176" max="32767" attributes="0"/>
           </Group>
@@ -89,7 +89,8 @@
         <Component class="javax.swing.JTable" name="jTableBibliotheque">
           <Properties>
             <Property name="model" type="javax.swing.table.TableModel" editor="org.netbeans.modules.form.editors2.TableModelEditor">
-              <Table columnCount="7" rowCount="4">
+              <Table columnCount="8" rowCount="4">
+                <Column editable="false" title="int" type="java.lang.Integer"/>
                 <Column editable="false" title="Titre" type="java.lang.String"/>
                 <Column editable="false" title="Auteur" type="java.lang.String"/>
                 <Column editable="false" title="Edition" type="java.lang.String"/>
@@ -136,11 +137,18 @@
                   <Editor/>
                   <Renderer/>
                 </Column>
+                <Column maxWidth="-1" minWidth="-1" prefWidth="-1" resizable="true">
+                  <Title/>
+                  <Editor/>
+                  <Renderer/>
+                </Column>
               </TableColumnModel>
             </Property>
             <Property name="columnSelectionAllowed" type="boolean" value="true"/>
+            <Property name="focusable" type="boolean" value="false"/>
+            <Property name="rowSelectionAllowed" type="boolean" value="true"/>
             <Property name="tableHeader" type="javax.swing.table.JTableHeader" editor="org.netbeans.modules.form.editors2.JTableHeaderEditor">
-              <TableHeader reorderingAllowed="true" resizingAllowed="true"/>
+              <TableHeader reorderingAllowed="false" resizingAllowed="true"/>
             </Property>
           </Properties>
         </Component>
@@ -167,10 +175,13 @@
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="removeBookActionPerformed"/>
       </Events>
     </Component>
-    <Component class="javax.swing.JButton" name="modifyBook">
+    <Component class="javax.swing.JButton" name="editBook">
       <Properties>
-        <Property name="text" type="java.lang.String" value="TODO Modifier le livre s&#xe9;lectionn&#xe9;"/>
+        <Property name="text" type="java.lang.String" value="TODO modifier le livre select"/>
       </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="editBookActionPerformed"/>
+      </Events>
     </Component>
   </SubComponents>
 </Form>
