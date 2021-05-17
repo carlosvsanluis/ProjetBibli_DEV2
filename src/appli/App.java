@@ -68,7 +68,6 @@ public class App {
 
         this.afficherListejTableBiblio();
     }
-    
 
     /**
      * Créer le tableau vide dans la frame Bibliothèque. NE PAS L'APPELLER
@@ -111,9 +110,16 @@ public class App {
         }
     }
 
-    public void retirerColomneGauche(){
+    /**
+     * NE PAS UTILISER POUR LE MOMENT. Méthode de test de removeColumn pour
+     * l'appeller depuis d'autres méthodes/éléments (ex bouton) Elle ne
+     * fonctionne pas actuellement. PISTE -> Notre modèle est redéfini dans
+     * setRowCountjTableBiblio(int)
+     */
+    public void retirerColomneGauche() {
         this.jFrameBiblio.getjTableBibliotheque().removeColumn(this.jFrameBiblio.getjTableBibliotheque().getColumnModel().getColumn(0));
     }
+    
 //    /**
 //     * Ancienne méthode qui fonctionnait en appelant la liste de notre
 //     * bibliothque on ne l'utilise pas actuellement.
@@ -137,6 +143,7 @@ public class App {
 //            this.jFrameBiblio.getjTableBibliotheque().setValueAt(list.get(i).getIsbn(), i, 5);
 //        }
 //    }
+
     public Administre getMonAdministre() {
         return monAdministre;
     }

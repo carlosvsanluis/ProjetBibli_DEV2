@@ -81,7 +81,7 @@ public class JFrameBibliotheque extends javax.swing.JFrame {
                 {null, null, null, null, null, null, null, null}
             },
             new String [] {
-                "int", "Titre", "Auteur", "Edition", "Genre", "Format", "Année d'éditions", "Isbn"
+                "id", "Titre", "Auteur", "Edition", "Genre", "Format", "Année d'éditions", "Isbn"
             }
         ) {
             Class[] types = new Class [] {
@@ -101,10 +101,14 @@ public class JFrameBibliotheque extends javax.swing.JFrame {
         });
         jTableBibliotheque.setColumnSelectionAllowed(true);
         jTableBibliotheque.setFocusable(false);
-        jTableBibliotheque.setRowSelectionAllowed(true);
+        jTableBibliotheque.setShowGrid(true);
         jTableBibliotheque.getTableHeader().setReorderingAllowed(false);
         jScrollPane1.setViewportView(jTableBibliotheque);
         jTableBibliotheque.getColumnModel().getSelectionModel().setSelectionMode(javax.swing.ListSelectionModel.SINGLE_INTERVAL_SELECTION);
+        if (jTableBibliotheque.getColumnModel().getColumnCount() > 0) {
+            jTableBibliotheque.getColumnModel().getColumn(0).setResizable(false);
+            jTableBibliotheque.getColumnModel().getColumn(0).setPreferredWidth(0);
+        }
 
         jLabelBibliotheque.setText("Bibliotheque");
 
