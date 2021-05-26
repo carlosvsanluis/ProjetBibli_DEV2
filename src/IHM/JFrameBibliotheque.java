@@ -6,16 +6,7 @@
 package IHM;
 
 import appli.App;
-import java.awt.AWTException;
-import static java.awt.Event.ENTER;
-import java.awt.Robot;
-import java.awt.event.KeyEvent;
-import java.util.logging.Level;
-import java.util.logging.Logger;
-import javax.swing.JComboBox;
 import javax.swing.JTable;
-import javax.swing.JTextField;
-import javax.swing.event.ChangeEvent;
 
 /**
  *
@@ -99,8 +90,9 @@ public class JFrameBibliotheque extends javax.swing.JFrame {
                 return canEdit [columnIndex];
             }
         });
-        jTableBibliotheque.setColumnSelectionAllowed(true);
+        jTableBibliotheque.setCellSelectionEnabled(false);
         jTableBibliotheque.setFocusable(false);
+        jTableBibliotheque.setRowSelectionAllowed(true);
         jTableBibliotheque.setShowGrid(true);
         jTableBibliotheque.getTableHeader().setReorderingAllowed(false);
         jScrollPane1.setViewportView(jTableBibliotheque);
@@ -176,7 +168,10 @@ public class JFrameBibliotheque extends javax.swing.JFrame {
 
     private void removeBookActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_removeBookActionPerformed
         // TODO add your handling code here:
-        // On veut supprimer le livre qui est actuellement sélectionné dans le tableau. Il va falloir faire une petite recherche dans les méthodes des jtable pour bien cibler un row.
+        String j =(String)jTableBibliotheque.getValueAt(jTableBibliotheque.getSelectedRow(), 0);
+        this.monApp.tableOuvrages.supprimerOuvrage(j);
+        this.monApp.majBiblio();
+// On veut supprimer le livre qui est actuellement sélectionné dans le tableau. Il va falloir faire une petite recherche dans les méthodes des jtable pour bien cibler un row.
         // Ou peut-être juste appeller une méthode qui va supprimer celui sélectionné de la DB puis mettre à jour via majBiblio()
 //        String idLivre = new String (jTableBibliotheque.getSelectedRow());
 

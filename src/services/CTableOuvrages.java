@@ -161,7 +161,7 @@ public class CTableOuvrages {
         return res;
     }
 
-    public int supprimerOuvrage(int idOuvrage) {
+    public int supprimerOuvrage(String idOuvrage) {
         int res = -1;
         if (bdd.connecter() == true) {
             String req = "DELETE FROM `ouvrages` WHERE `idOuvrage` = " + idOuvrage;
